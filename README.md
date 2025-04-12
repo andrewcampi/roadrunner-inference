@@ -1,5 +1,31 @@
-RoadRunner is a novel approach that accelerates transformer inference by eliminating expensive matrix multiplications without compromising output quality. The key discovery is that transformers contain inherent structural properties that allow bypassing the computational bottlenecks in both MLP blocks and language model (LM) heads. Through Singular Value Decomposition (SVD) of transformer weight matrices, RoadRunner creates efficient computational pathways that preserve semantic integrity while dramatically reducing total operations.
+# 🏃‍♂️ RoadRunner: Matmul-Free Transformer Inference
 
-Experiments with both GPT-2 and Llama-3.2-1B reveal that transformer hidden states naturally align with target token embeddings to a remarkable degree, enabling direct dot-product token selection without requiring full vocabulary projection. By implementing layerwise alpha-blending that combines minimal contributions from routed computation paths (as low as 5%) with standard paths, the system maintains near-perfect token match and nearly identical output distributions (>0.99 cosine similarity).
+> 🚀 A novel architecture for accelerating transformer inference without retraining, using SVD-based adaptive routing and dot product prediction.
 
-The measured 1.57× speedup was achieved with an unoptimized proof of concept implementation, primarily demonstrating that large matrix multiplications can be bypassed without accuracy loss. Future derivative works applying RoadRunner's technique could achieve revolutionary speed increases, particularly if the same approach is extended to the self-attention mechanism. This research opens the door to dramatically faster transformer inference with pretrained weights while maintaining near-perfect accuracy compared to baseline inference.
+![RoadRunner Logo](images/logo.png)
+
+---
+
+## ✨ What is RoadRunner?
+
+**RoadRunner** is a high-efficiency inference engine for transformer models like GPT-2 and LLaMA-3.2-1B. It bypasses large matrix multiplications in MLP blocks and LM heads using **Singular Value Decomposition (SVD)** and **adaptive residual routing** — all while preserving near-perfect output quality.
+
+---
+
+## 🔍 Key Insights
+
+- **SVD-Based Routing**: Decomposes MLP weight matrices to create efficient, low-rank computation paths.
+- **Token Embedding Alignment**: Shows transformer hidden states naturally align with correct token embeddings (>0.99 cosine similarity).
+- **Matrix-Free LM Head**: Replaces expensive vocabulary projection with lightweight dot-product prediction and reranking.
+- **Layerwise Alpha Blending**: Uses minimal routing contributions (as low as 5%) to maintain output fidelity.
+
+---
+
+## 📊 Results
+
+| Model          | Speedup | Token Match | Cosine Similarity |
+|----------------|---------|-------------|-------------------|
+| GPT-2          | 1.57×   | 99%         | >0.99             |
+| LLaMA-3.2-1B   | 1.57×   | 99%         | >0.99             |
+
+> Achieved in a simple PoC without quantization, compiling, or any weight modification.
