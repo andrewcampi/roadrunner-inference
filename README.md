@@ -1,16 +1,16 @@
 # <img src="images/logo.png" alt="RoadRunner Logo" width="100" /> RoadRunner: Matmul-Free Transformer Inference
 
-> 🚀 A novel architecture for accelerating transformer inference without retraining, using SVD-based adaptive routing and dot product prediction.
+> A novel architecture for accelerating transformer inference without retraining, using SVD-based adaptive routing and dot product prediction.
 
 ---
 
-## ✨ What is RoadRunner?
+## What is RoadRunner?
 
 **RoadRunner** is a high-efficiency inference engine for transformer models like GPT-2 and LLaMA-3.2-1B. It bypasses large matrix multiplications in MLP blocks and LM heads using **Singular Value Decomposition (SVD)** and **adaptive residual routing** — all while preserving near-perfect output quality.
 
 ---
 
-## 🔍 Key Insights
+## Key Insights
 
 - **SVD-Based Routing**: Decomposes MLP weight matrices to create efficient, low-rank computation paths.
 - **Token Embedding Alignment**: Shows transformer hidden states naturally align with correct token embeddings (>0.99 cosine similarity).
@@ -19,7 +19,7 @@
 
 ---
 
-## 📊 Results
+## Results
 
 | Model          | Speedup | Token Match | Cosine Similarity |
 |----------------|---------|-------------|-------------------|
