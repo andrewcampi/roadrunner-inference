@@ -1,9 +1,13 @@
 ### 1_gpt2_custom_inference.py:
+
 Tested: Implemented basic GPT-2 token generation with manual control over the inference loop, accessing internal model states and caching past key/values for attention.
+
 Learned: The standard inference path relies heavily on repeated matrix multiplications for each new token, even though most of the computation context remains unchanged between tokens.
 
 ### 2_gpt2_manual_attention_debug.py:
+
 Tested: Broke down and timed each component of the attention mechanism in the first transformer block, examining shapes and collecting precise timing metrics for each operation.
+
 Learned: The LM head is the most expensive operation (2.847ms) compared to attention components (all under 0.2ms), suggesting the vocabulary projection is a major bottleneck for inference speed.
 
 ### 3_gpt2_lmhead_svd.py:
