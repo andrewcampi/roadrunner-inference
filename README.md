@@ -2,7 +2,7 @@
 
 > 🚀 A novel architecture for accelerating transformer inference without retraining, using SVD-based adaptive routing and dot product prediction.
 
-![RoadRunner Logo](images/logo.png)
+<img src="images/logo.png" alt="RoadRunner Logo" width="100" />
 
 ---
 
