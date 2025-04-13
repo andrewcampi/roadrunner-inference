@@ -1,6 +1,6 @@
 # <img src="images/logo_crop.png" alt="RoadRunner Logo" width="100" /> RoadRunner: Large Matmul-Free Transformer Inference
 
-> A novel architecture for accelerating transformer inference without retraining, using SVD-based adaptive routing and dot product prediction.
+> A novel architecture for accelerating transformer inference without retraining, using SVD-based adaptive routing and dot product prediction. Near 100% accuracy, all without any model weight modifications required.
 
 ---
 
